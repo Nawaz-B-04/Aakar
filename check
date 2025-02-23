@@ -1,0 +1,92 @@
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+const citySchema = new Schema({
+    city_id: {
+        type: Number,
+        required: true,
+        unique: true,  
+    },
+    city_name: {
+        type: String,
+        required: true,
+        maxlength: 100,  
+    },
+    state: {
+        type: String,
+        required: true,
+        maxlength: 100,  
+    },
+    latitude: {
+        type: Number,
+        required: true,
+    },
+    longitude: {
+        type: Number,
+        required: true,
+    },
+    population: {
+        type: Number,
+        required: true,
+    },
+    literacy_rate: {
+        type: Number,
+        required: true,
+    },
+    aqi: {
+        type: Number,
+        required: true,
+    },
+    average_temperature: {
+        type: Number,
+        required: true,
+    },
+    average_rainfall: {
+        type: Number,
+        required: true,
+    },
+    gdp: {
+        type: Number,
+        required: true,
+    },
+    number_of_schools: {
+        type: Number,
+        required: true,
+    },
+    hospital_count: {
+        type: Number,
+        required: true,
+    },
+    poverty_rate: {
+        type: Number,
+        required: true,
+    },
+    unemployment_rate: {
+        type: Number,
+        required: true,
+    },
+    urbanization_rate: {
+        type: Number,
+        required: true,
+    },
+    crime_rate: {
+        type: Number,
+        required: true,
+    }
+});
+
+const City = mongoose.model("City", citySchema);
+
+
+
+module.exports = City;
+
+
+
+////         const aqi = <%= aqiData.data.aqi %>;
+//         const ozone = <%= aqiData?.data?.forecast?.daily?.o3?.[0]?.avg || 'N/A' %>;
+// const pm25 = <%= aqiData?.data?.forecast?.daily?.pm25?.[0]?.avg || 'N/A' %>;
+
+//         const time = "<%= aqiData.data.time.s %>";
+//         const cityFullName = "<%= aqiData.data.city.name %>";
+//         console.log(cityFullName)

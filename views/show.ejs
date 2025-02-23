@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Details</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #121212; 
+            color: #ffffff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00ffff; 
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(25, 25, 25, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background-color: #00ffff;
+            color: #121212;
+            text-transform: uppercase;
+        }
+
+        tr:hover {
+            background-color: rgba(0, 255, 255, 0.2);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: white;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            transition: 0.3s ease-in-out;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+        }
+
+        button a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>City Details</h1>
+
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><strong>City Name</strong></td>
+                <td><%= cityData.city_name %></td>
+            </tr>
+            <tr>
+                <td><strong>State</strong></td>
+                <td><%= cityData.state %></td>
+            </tr>
+            <tr>
+                <td><strong>Latitude</strong></td>
+                <td><%= cityData.latitude %></td>
+            </tr>
+            <tr>
+                <td><strong>Longitude</strong></td>
+                <td><%= cityData.longitude %></td>
+            </tr>
+            <tr>
+                <td><strong>Population</strong></td>
+                <td><%= cityData.population %></td>
+            </tr>
+            <tr>
+                <td><strong>Literacy Rate</strong></td>
+                <td><%= cityData.literacy_rate %> %</td>
+            </tr>
+            <tr>
+                <td><strong>AQI (Air Quality Index)</strong></td>
+                <td><%= cityData.aqi %></td>
+            </tr>
+            <tr>
+                <td><strong>Average Temperature</strong></td>
+                <td><%= cityData.average_temperature %> °C</td>
+            </tr>
+            <tr>
+                <td><strong>Average Rainfall</strong></td>
+                <td><%= cityData.average_rainfall %> mm</td>
+            </tr>
+            <tr>
+                <td><strong>GDP</strong></td>
+                <td><%= cityData.gdp %> INR</td>
+            </tr>
+            <tr>
+                <td><strong>Number of Schools</strong></td>
+                <td><%= cityData.number_of_schools %></td>
+            </tr>
+            <tr>
+                <td><strong>Hospital Count</strong></td>
+                <td><%= cityData.hospital_count %></td>
+            </tr>
+            <tr>
+                <td><strong>Poverty Rate</strong></td>
+                <td><%= cityData.poverty_rate %> %</td>
+            </tr>
+            <tr>
+                <td><strong>Unemployment Rate</strong></td>
+                <td><%= cityData.unemployment_rate %> %</td>
+            </tr>
+            <tr>
+                <td><strong>Urbanization Rate</strong></td>
+                <td><%= cityData.urbanization_rate %> %</td>
+            </tr>
+            <tr>
+                <td><strong>Crime Rate</strong></td>
+                <td><%= cityData.crime_rate %> per 1000 people</td>
+            </tr>
+            
+        </table>
+
+        <div class="button-container">
+            <button><a href="/cities/maps/<%= cityData._id %>">View Maps</a></button>
+        </div>
+    </div>
+
+</body>
+</html>

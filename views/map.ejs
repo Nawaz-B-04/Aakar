@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Map of <%= cityData.city_name %></title>
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js"></script>
+
+    <style>
+    
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background-color: #0A192F;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+   
+        h1 {
+            color: #64FFDA;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background: #64FFDA;
+            color: #0A192F;
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+        .back-button:hover {
+            background: #52e6c1;
+        }
+
+       
+        #map {
+            width: 90%;
+            max-width: 1000px;
+            height: 450px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 255, 150, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="/cities" class="back-button">⬅ Back to Cities</a>
+    <h1>Map of <%= cityData.city_name %></h1>
+    <div id="map"></div>
+</div>
+
+<script>
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoibmF3YXozNDMiLCJhIjoiY200d3o3dzFiMGxnMTJqcGs0Mml0dTFicCJ9.2uAZgO3Inhrs3tdE3uG-eg';
+
+    const latitude = <%= cityData.latitude %>;
+    const longitude = <%= cityData.longitude %>;
+
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',  
+
+        center: [longitude, latitude],
+        zoom: 12
+    });
+
+  
+    new mapboxgl.Marker({ color: "#64FFDA" })
+        .setLngLat([longitude, latitude])
+        .setPopup(new mapboxgl.Popup().setText("<%= cityData.city_name %>")) 
+        .addTo(map);
+</script>
+
+</body>
+</html>
